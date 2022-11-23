@@ -99,20 +99,6 @@ public partial class Toggler : Form
         }
     }
 
-    public static bool SetStyle(Control c, ControlStyles Style, bool value)
-    {
-        var retval = false;
-        var typeTB = typeof(Control);
-        var misSetStyle = typeTB.GetMethod("SetStyle", BindingFlags.NonPublic | BindingFlags.Instance);
-        if (misSetStyle != null && c != null)
-        {
-            misSetStyle.Invoke(c, new object[] { Style, value });
-            retval = true;
-        }
-
-        return retval;
-    }
-
     public class Configuration
     {
         public List<string> FilesAndFoldersToMove = new();
